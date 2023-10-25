@@ -1,0 +1,19 @@
+version: '3'
+services:
+  prog-management-app:
+    image: test-0.0.1.jar
+    depends_on:
+      - mysql
+    ports:
+      - "8091:8082"
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD:  # Laissez vide
+      MYSQL_DATABASE: BD_STAGE
+    volumes:
+      - db:/D:/BD_STAGE
+    ports:
+      - "3307:3306"
+volumes:
+  db:
